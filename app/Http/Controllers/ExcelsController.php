@@ -74,7 +74,7 @@ class ExcelsController extends Controller
 		$employee = Employee::findOrFail($employee_id);
 		$result = Attendance::where('employee_id',$employee_id)->where('date', '>=', date($year.'-'.$month.'-1'))->where('date', '<=', date($year.'-'.$month.'-31'))->get();
 
-		return view('excel.view', compact('result', 'employee'));
+		return view('excel.view', compact('result', 'employee', 'month', 'year'));
 	}
 
 	private function isWeekend($date) {

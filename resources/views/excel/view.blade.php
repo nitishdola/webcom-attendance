@@ -1,8 +1,9 @@
 @extends('layout')
 @section('content')
 <div class="col-xs-12">
-    <h2>Emp Att Sheet : {{ ucwords($employee->name) }}</h2>
+    <h2>Emp Att Sheet : {{ ucwords($employee->name) }} : {{$month}} / {{$year}}</h2>
 
+    @if(count($result))
     <table class="table table-bordered">
     	<thead>
     		<tr>
@@ -40,6 +41,12 @@
     		@endforeach
     	</tbody>
     </table>
+
+    @else
+    <div class="alert alert-danger">
+      <strong>Oops !</strong> No results found.
+    </div>
+    @endif
 </div>
 <?php
 function isWeekend($date) {

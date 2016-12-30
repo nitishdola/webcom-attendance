@@ -19,6 +19,7 @@ class CreateAttendancesTable extends Migration
             $table->date('date');
             $table->string('in_time',20);
             $table->string('out_time',20);
+            $table->integer('total_duration', false, true)->unsigned();
             $table->string('status',20);
             $table->timestamps();
 
